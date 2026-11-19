@@ -1,0 +1,517 @@
+/* =====================================================================
+   Entre Hojas · Tiempos y Costos
+   Hoja de estilos externa. Se enlaza en el <head> con:
+   <link rel="stylesheet" href="estilos.css">
+   ===================================================================== */
+
+/* ---------- 1. Variables de color y tipografía ---------- */
+:root {
+  --fondo: #f3f2e8;
+  --tarjeta: #fbfaf4;
+  --borde: #e2e0d2;
+  --verde-oscuro: #2f4a3a;
+  --verde-medio: #4f7a5c;
+  --verde-suave: #dbe6d3;
+  --beige: #efe4d8;
+  --texto: #25352b;
+  --texto-suave: #6b776e;
+  --rojo: #8f3b2e;
+  --rojo-suave: #f4dcd6;
+  --ambar: #8a6a1f;
+  --ambar-suave: #f3e8c8;
+  --gris-suave: #e9e8df;
+
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+  --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radio: 14px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--verde-oscuro);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- 3. Portada (imagen del comercio arriba de todo) ---------- */
+.portada {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 180px;
+  margin: 0 auto;
+  background: var(--verde-suave);
+  overflow: hidden;
+}
+
+.portada img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marca {
+  position: absolute;
+  left: 24px;
+  bottom: 18px;
+  padding: 8px 18px;
+  background: rgba(251, 250, 244, 0.92);
+  border-radius: 999px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+/* ---------- 4. Contenedor y encabezado de página ---------- */
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+}
+
+.intro {
+  margin-bottom: 28px;
+}
+
+.intro h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 2.6rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  max-width: 520px;
+  color: var(--texto-suave);
+}
+
+/* ---------- 5. Grilla de dos columnas ---------- */
+.grilla {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 24px;
+  min-width: 0; /* evita que el contenido ensanche la columna */
+}
+
+.tarjeta h2 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.tarjeta h3 {
+  font-size: 1rem;
+  margin: 24px 0 10px;
+}
+
+.ayuda {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 6. Formulario ---------- */
+.campo {
+  margin-top: 18px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+}
+
+.campo .ayuda {
+  display: block;
+  margin: 2px 0 6px;
+}
+
+.campo input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+}
+
+.campo input:focus {
+  outline: 3px solid var(--verde-suave);
+  border-color: var(--verde-medio);
+}
+
+.campo input.invalido {
+  border-color: var(--rojo);
+  background: #fff8f6;
+}
+
+/* ---------- 7. Errores ---------- */
+.errores {
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: var(--rojo-suave);
+  border: 1px solid #e4b9b0;
+  border-radius: 10px;
+  color: var(--rojo);
+  font-size: 0.9rem;
+}
+
+.errores p {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.errores ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.errores[hidden],
+.aviso[hidden] {
+  display: none;
+}
+
+/* ---------- 8. Botones ---------- */
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+  color: var(--verde-oscuro);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--gris-suave);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--verde-suave);
+  outline-offset: 2px;
+}
+
+button.primario {
+  flex: 1;
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+  color: #fff;
+}
+
+button.primario:hover {
+  background: #243b2e;
+}
+
+.aviso {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--verde-medio);
+}
+
+/* ---------- 9. Gastos fijos ---------- */
+.fijos {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borde);
+}
+
+.fijos h3 {
+  margin-top: 0;
+}
+
+.fijos li,
+.total-fijo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+  padding: 4px 0;
+}
+
+.total-fijo {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--borde);
+}
+
+.total-fijo strong {
+  color: var(--verde-oscuro);
+}
+
+.fijos .ayuda {
+  margin-top: 4px;
+}
+
+/* ---------- 10. Resultados ---------- */
+.vacio {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.gasto-total {
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: var(--verde-suave);
+  border-radius: 12px;
+}
+
+.gasto-total span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.gasto-total strong {
+  display: block;
+  margin: 4px 0;
+  font-family: var(--fuente-titulos);
+  font-size: 2.2rem;
+  color: var(--verde-oscuro);
+}
+
+.gasto-total small {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.desglose {
+  margin-top: 14px;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 0.88rem;
+}
+
+.fila.total {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--borde);
+  font-weight: 700;
+}
+
+/* Horas necesarias / disponibles */
+.par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dato {
+  padding: 14px 16px;
+  background: var(--gris-suave);
+  border-radius: 10px;
+}
+
+.dato span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.dato strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1.3rem;
+  color: var(--verde-oscuro);
+}
+
+/* Estado de producción: el texto explica, el color apoya */
+.estado {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-left: 6px solid transparent;
+}
+
+.estado.sobra {
+  background: var(--verde-suave);
+  border-left-color: var(--verde-medio);
+  color: var(--verde-oscuro);
+}
+
+.estado.exacto {
+  background: var(--ambar-suave);
+  border-left-color: var(--ambar);
+  color: var(--ambar);
+}
+
+.estado.falta {
+  background: var(--rojo-suave);
+  border-left-color: var(--rojo);
+  color: var(--rojo);
+}
+
+.estado.sin-produccion {
+  background: var(--gris-suave);
+  border-left-color: var(--texto-suave);
+  color: var(--texto-suave);
+}
+
+/* Capacidad máxima */
+.capacidades {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.capacidades .dato {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--borde);
+}
+
+.dato.centro {
+  text-align: center;
+}
+
+.dato.centro strong {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.capacidades .o {
+  align-self: center;
+  color: var(--texto-suave);
+}
+
+.aclaracion {
+  margin-top: 14px;
+  padding: 16px 18px;
+  background: var(--beige);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.aclaracion h4 {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.aclaracion p + p {
+  margin-top: 8px;
+}
+
+/* ---------- 11. Nota y pie ---------- */
+.nota {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.pie {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 24px 32px;
+  border-top: 1px solid var(--borde);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 12. Diseño responsivo (celular y tablet) ---------- */
+@media (max-width: 800px) {
+  .grilla {
+    grid-template-columns: 1fr; /* una sola columna */
+  }
+
+  .portada {
+    height: 140px;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 24px 16px 16px;
+  }
+
+  .tarjeta {
+    padding: 18px;
+  }
+
+  .marca {
+    left: 16px;
+    bottom: 12px;
+  }
+
+  .par {
+    grid-template-columns: 1fr;
+  }
+
+  .capacidades {
+    flex-direction: column;
+  }
+
+  .capacidades .o {
+    align-self: center;
+  }
+
+  .gasto-total strong {
+    font-size: 1.8rem;
+  }
+
+  .pie {
+    padding: 16px;
+  }
+}

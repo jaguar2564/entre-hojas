@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entre Hojas · Tiempos y Costos</title>
+  <!-- Hoja de estilos externa. -->
+  <link rel="stylesheet" href="diseño.css">
+  <!-- Primero cargamos jQuery desde Google. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+  <!-- Después cargamos el código de la aplicación. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="portada">
+    <!-- Reemplazar por la imagen del comercio (carpeta img/) -->
+    <img src="imagen/hojas.jpg.jpg" alt="Cuadernos artesanales de Entre Hojas" width="300">
+    <p class="marca">Entre Hojas</p>
+  </header>
+
+  <main class="contenedor">
+    <section class="intro">
+      <h1>Tiempos y Costos</h1>
+      <p>Explorá cuánto gastarías y si las horas disponibles alcanzan para la producción que tenés en mente.</p>
+    </section>
+
+    <div class="grilla">
+      <section class="tarjeta" aria-labelledby="titulo-form">
+        <h2 id="titulo-form">Armá tu producción</h2>
+        <p class="ayuda">Indicá las cantidades y las horas disponibles para este mes.</p>
+
+        <form id="formulario" novalidate>
+          <!-- cantidad-0 corresponde a modelos[0] y cantidad-1 a modelos[1] -->
+          <div class="campo">
+            <label for="cantidad-0">Cuadernos sencillos</label>
+            <span class="ayuda" id="ayuda-0"></span>
+            <input type="text" id="cantidad-0" inputmode="numeric" value="40" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="cantidad-1">Cuadernos personalizados</label>
+            <span class="ayuda" id="ayuda-1"></span>
+            <input type="text" id="cantidad-1" inputmode="numeric" value="20" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="horas">Horas disponibles en el mes</label>
+            <span class="ayuda">Podés usar decimales. Por ejemplo, 0,5 equivale a media hora.</span>
+            <input type="text" id="horas" inputmode="decimal" value="40" autocomplete="off">
+          </div>
+
+          <div id="errores" class="errores" role="alert" hidden></div>
+
+          <div class="botones">
+            <button type="submit" id="btn-calcular" class="primario">Calcular</button>
+            <button type="button" id="btn-restablecer">Restablecer</button>
+          </div>
+          <p id="aviso" class="aviso" role="status" hidden></p>
+        </form>
+
+        <div class="fijos">
+          <h3>Los gastos fijos del mes</h3>
+          <ul id="lista-fijos"></ul>
+          <p class="total-fijo"><span>Total fijo</span> <strong id="total-fijo"></strong></p>
+          <p class="ayuda">Se mantienen aunque no fabriques cuadernos.</p>
+        </div>
+      </section>
+
+      <section class="tarjeta" aria-labelledby="titulo-res">
+        <h2 id="titulo-res">Planificación estimada para un mes</h2>
+        <div id="resultados" aria-live="polite">
+          <p class="vacio">Completá los datos y presioná <strong>Calcular</strong> para ver los gastos, las horas necesarias y la capacidad de producción.</p>
+        </div>
+      </section>
+    </div>
+
+    <p class="nota"><strong>Atención:</strong> los importes son simulados. El costo por cuaderno incluye materiales y embalaje. La capacidad depende solo del tiempo; se supone que hay materiales y herramientas suficientes. Este cálculo no incluye ingresos, impuestos ni el valor de la mano de obra.</p>
+  </main>
+
+  <footer class="pie">
+    <p>Entre Hojas · Programación en JavaScript · C.F.L. 428 La Plata · 2026</p>
+    <p>Integrantes: NOMBRE APELLIDO 1 y NOMBRE APELLIDO 2</p>
+  </footer>
+</body>
+</html>
